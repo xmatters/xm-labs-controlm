@@ -1,0 +1,115 @@
+-------------------------------------------------------------------------------
+xMatters (IT) for BMC Control-M Workload Automation Integration Release Notes
+-------------------------------------------------------------------------------
+
+August 23, 2013
+
+xMatters (IT) for BMC Control-M Workload Automation Integration version 2.0
+Copyright 2013 xMatters, inc.
+
+-------
+SUMMARY
+-------
+This release of the xMatters (IT) for BMC Control-M integration is designed to
+work with xMatters 5.0 (patch 009 or later) and the xMatters integration agent
+version 5.0 (patch 007 or later).
+
+
+--------------
+QUALIFICATIONS
+--------------
+This release has been qualified against the following operating systems:
+
+- Windows 2008 R2
+
+This release has been qualified against the following Software Components:
+
+- xMatters 5.0 patch 009
+- xMatters integration agent 5.0 patch 007
+
+- BMC Control-M Workload Automation v8
+- BMC Control-M/EM API v8
+
+
+--------------------
+FIXES/CHANGES
+--------------------
+
+This integration has been upgraded to work with xMatters 5.0 and BMC Control-M
+Workload Automation version 8.
+
+-------------------------
+ZIP FILE FOLDER STRUCTURE
+-------------------------
+.
+|-- components
+| |-- integration-agent
+| | |-- bin
+| | | |-- Controlm-APClient-Del.bat
+| | | ‘-- Controlm-APClient.bat
+| | |-- conf
+| | | |-- bmccontrolm.pwd
+| | | ‘-- deduplicator-filter.xml
+| | |-- integrationservices
+| | | ‘-- controlm20
+| | |   |-- apia-lifecycle.js
+| | |   |-- baseclass.js
+| | |   |-- controlm-api.js
+| | |   |-- controlm-config.js
+| | |   |-- controlm.js
+| | |   |-- controlm.xml
+| | |   |-- lib
+| | |   |-- logger.js
+| | |   |-- util.js
+| | |   ‘-- xmldata
+| | |     |-- EMAPI_act_retrieve_jobs.xml
+| | |     |-- EMAPI_register.xml
+| | |     ‘-- EMAPI_unregister.xml
+| | ‘-- lib
+| |   ‘-- integrationservices
+| |     |-- avalon-framework-4.1.5.jar
+| |     |-- emapi.jar
+| |     ‘-- jacorb.jar
+| ‘-- xmatters
+|   |-- event-domain
+|   | ‘-- xM-BMC-Control-M.xml
+|   |-- scripts
+|   | ‘-- xM-BMC-Control-M.xml
+|   ‘-- vox
+|     ‘-- english
+|-- documentation
+| ‘-- xm_bmc_controlm_v20.pdf
+‘-- release-notes.txt
+
+
+
+------------
+INSTALLATION
+------------
+
+Review the installation instructions in the xm_bmc_controlm_v20.pdf integration 
+guide in the documentation folder.
+
+-----------------
+TECHNICAL SUPPORT
+-----------------
+
+Send Us Your Comments
+
+xMatters is committed to continuous improvement. Your constructive comments on 
+this xMatters integration will help us to correct problems and improve features. 
+Contact xMatters customer support with questions about xMatters or to arrange 
+for training or maintenance.
+
+*   E-mail:    support@xmatters.com
+*   Telephone: (925) 226-0300 option 2
+               8am to 5pm Monday through Friday Pacific Standard Time
+
+*   Web site:  http://www.xmatters.com
+*   Address:   xMatters, inc.
+               12647 Alcosta Blvd., #425
+               San Ramon, CA 94583
+
+
+
+END OF FILE

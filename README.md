@@ -7,16 +7,13 @@ This is an update to the BMC Workload Automation (aka Control-M) integration for
 * This integration is UBER closed loop! That is to say responding with Rerun, ForceOK, Logs or Output will take actual actions in Control-M, Logs and Output notifying the responding user with the result.
 
 # Pre-Requisites
-* Control-M V8
-* BMC CONTROL-M/EM API v8
+* Control-M v8   (not tested on v9 yet)
+* BMC CONTROL-M/EM API
 * The latest xMatters Integration Agent
 * xMatters on Demand
 
 # Files
-Update me
-* [ExampleCommPlan.zip](ExampleCommPlan.zip) - This is an example comm plan to help get started. (If it doesn't make sense to have a full communication plan, then you can just use a couple javascript files like the one below.)
-* [EmailMessageTemplate.html](EmailMessageTemplate.html) - This is an example HTML template for emails and push messages.
-* [FileA.js](FileA.js) - An example javascript file to be pasted into a Shared Library in the Integration builder. Note the comments
+* [BMCControlMIntegration.zip](BMCControlMIntegration.zip) - Communication Plan to be loaded into xMatters On Demand.  (DoTo: This still needs the agent failure form)
 
 # How it works
 1. The integration is triggered by Control-M in 1 of two ways. Either:

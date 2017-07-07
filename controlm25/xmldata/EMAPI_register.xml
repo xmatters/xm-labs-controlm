@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ctmem:request_register xmlns:ctmem="http://www.bmc.com/ctmem/schema800">
+      <ctmem:user_name>$USER_NAME$</ctmem:user_name>
+      <ctmem:password>$USER_PASS$</ctmem:password>
+      <ctmem:timeout>600</ctmem:timeout>
+      <ctmem:hostname>$HOST_NAME$</ctmem:hostname>
+    </ctmem:request_register>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
