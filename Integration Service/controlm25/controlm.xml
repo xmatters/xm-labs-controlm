@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ | Service configuration file
+ |
+ | attribute: version
+ | values   : 1.0
+ | comments : identifies the format version of this file
+ |
+ | Created by Adam Dahlquist, adahlquist@alarmpoint.com
+ | Copyright 2010 AlarmPoint Systems
+ |
+ | attribute: xmlns
+ | values   : http://www.alarmpoint.com/schema
+ | comments : the default namespace in which all elements and attributes are
+ |            defined
+ +-->
+<integration-service version="1.0" xmlns="http://www.alarmpoint.com/schema">
+
+  <!--
+   | Each service belongs to an event domain and must have a unique (case-sensitive)
+   | name within the domain.  In other words, the combination of domain and name
+   | forms a unique id for the service.
+   +-->
+  <domain>applications</domain>
+  <name>controlm25</name>
+
+  <!--
+   | All services are loaded (i.e., parsed and configured), but only active
+   | services are allowed to process requests.  Setting a service to inactive is
+   | useful for temporarily disabling a service or debugging a configuration since
+   | parsing and validation are always be performed, regardless of initial state.
+   |
+   | NOTE: this value is static and is not changed by the Integration Agent.
+   |
+   | values: active, inactive
+   +-->
+   <initial-state>active</initial-state>
+
+  <!--
+   | Integration Service Requests are implemented by corresponding methods in a
+   | JavaScript file.  This element defines the location of the script and other
+   | properties.
+   |
+   | attribute: lang
+   | values   : js
+   | comments : JavaScript is the only supported language
+   +-->
+   <script lang="js">
+    <!--
+     | The relative path (resolved against the directory containing this file), of the
+     | script implementing the service.
+     |
+     | NOTE: The path may be Unix or Windows-formatted, although it is
+     | recommended that Unix-formatting be used since it works under both environments.
+     |
+     | NOTE: Depending on the OS, paths may be case-sensitive.
+     +-->
+     <file>controlm.js</file>
+   </script>
+
+  <!--
+   | The Integration Service scripts and implementation POJOs have access to all classes
+   | stored in <installation>/lib.  However, to prevent conflicts and enhance security,
+   | an Integration Service should load its own classes and resources from an
+   | unshared directory.  The classpath element allows an Integration Service to specify
+   | multiple paths that will be added to the service's classpath during the processing
+   | of an Integration Service Request.
+   |
+   | NOTE: Although this classpath augments the default classpath, which is available
+   | to all services), the augmented classpath is exclusive to this service.
+   +-->
+   <classpath>
+     <path>*.properties</path>
+     <path>lib/*.jar</path>
+   </classpath>
+
+  <!--
+   | Non-legacy Integration Services use the mapped-input element to define
+   | how an APClient map-data request is transformed into an APXML message.
+   | The first map-data token is always treated as an agent_client_id APXML
+   | token.  Subsequent map-data tokens are transformed in order according
+   | to the following parameter sub-elements.  If too few map-data tokens
+   | are supplied, the unused parameter sub-elements are ignored.  Conversely,
+   | if too many map-data tokens are supplied, the unused tokens are ignored.
+   |
+   | attribute: method
+   | values   : an arbitrary string
+   | comments : the resulting APXML message's method element value
+   |
+   | attribute: subclass
+   | values   : an arbitrary string
+   | comments : optional (defaults to no subclass), the resulting APXML
+   |            message's subclass element value
+   +-->
+   <mapped-input method="add" subclass="action">
+     <!--
+     | 0 or more parameters, each identifying an APXML token, and ordered the
+     | same as the map-data tokens (beginning with the second map-data
+     | token).
+     |
+     | attribute: type
+     | values   : auto, string, or numeric
+     | comments : optional (defaults to auto), the APXML token's type
+     +-->
+    <parameter type="string">shout_msg</parameter>
+    <parameter type="string">controlm_server</parameter>
+   </mapped-input>
+
+  <!--
+   | Non-legacy Integration Services use the constants element to add or
+   | replace tokens in an APClient map-data or message submission.
+   | In the case of a map-data submission, the constants are applied
+   | to the APXML message that results from applying the mapped-input.
+   +-->
+   <constants>
+    <!--
+     | 0 or more constants, each identifying an APXML token.
+     | Order is unimportant.
+     |
+     | attribute: name
+     | values   : a valid APXML token name
+     | comments : the APXML token's name
+     |
+     | attribute: type
+     | values   : auto, string, or numeric
+     | comments : optional (defaults to auto), the APXML token's type
+     |
+     | attribute: overwrite
+     | values   : true or false
+     | comments : optional (defaults to false), if true, any token with the
+     |            same name is replaced by this token; otherwise, this token
+     |            is only added if not already present
+     +-->
+     <constant name="deviceFilter-list-item-delimiter" type="string" overwrite="false">,</constant>
+   </constants>
+
+</integration-service>
