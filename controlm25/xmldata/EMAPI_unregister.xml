@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><ctmem:request_unregister xmlns:ctmem="http://www.bmc.com/ctmem/schema630"><ctmem:user_token>$USER_TOKEN$</ctmem:user_token></ctmem:request_unregister></SOAP-ENV:Body></SOAP-ENV:Envelope>
