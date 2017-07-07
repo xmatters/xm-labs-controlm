@@ -15,7 +15,7 @@ This is an update to the BMC Workload Automation (aka Control-M) integration for
 # Files
 * [BMCControlMIntegration.zip](BMCControlMIntegration.zip) - Communication Plan to be loaded into xMatters On Demand.  (DoTo: This still needs the agent failure form)
 * [controlm25](controlm25) - The integration service to be placed in 'integrationservices' on the xMatters Integration Agent
-* to be added - Deduplication filter
+
 
 # How it works
 1. The integration is triggered by Control-M in 1 of two ways. Either:
@@ -37,6 +37,7 @@ Long and complicated...
 
 
 deduplicator-filter.xml:
+```xml
 <!-- Filter to prevent duplicate events injecting more often than once every 5 seconds -->
 <filter name="controlm">
   <predicates>
@@ -45,7 +46,7 @@ deduplicator-filter.xml:
   <suppression_period>5</suppression_period>
   <window_size>1</window_size>
 </filter>
-
+```
 
 ## Control-M Setup
 Choose your method.  You can do both but then watch for duplicate events.
