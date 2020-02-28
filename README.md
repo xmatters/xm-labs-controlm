@@ -3,8 +3,19 @@ This is an update to the BMC Control-M (Workload Automation) integration for xMa
 * Tested on Control-M 8 (Please update in if this works on Control-M 9)
 * Now updated to use REST
 * Now tolerant of authenticated proxy server
-* Now not using deprecated methods to call communication plan forms
+* Now not using deprecated methods to call workflow forms
 * This integration is UBER closed loop! That is to say responding with Rerun, ForceOK, Logs or Output will take actual actions in Control-M, Logs and Output notifying the responding user with the result.
+
+---------
+
+<kbd>
+  <a href="https://support.xmatters.com/hc/en-us/community/topics">
+  <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+  </a>
+</kbd>
+
+---------
+
 
 # Pre-Requisites
 * Control-M v8   (not tested on v9 yet)
@@ -13,7 +24,7 @@ This is an update to the BMC Control-M (Workload Automation) integration for xMa
 * xMatters on Demand
 
 # Files
-* [BMCControlMIntegration.zip](BMCControlMIntegration.zip) - Communication Plan to be loaded into xMatters On Demand.  (DoTo: This still needs the agent failure form)
+* [BMCControlMIntegration.zip](BMCControlMIntegration.zip) - Workflow to be loaded into xMatters On Demand.  (DoTo: This still needs the agent failure form)
 * [controlm25](controlm25) - The integration service to be placed in 'integrationservices' on the xMatters Integration Agent.
 
 
@@ -39,9 +50,9 @@ There are 3 stages to configuring this integration. Before you can configure Con
 
 ## xMatters on Demand setup
 1. Create rest account (default controlm.rest)
-2. Import Communication Plan
-3. Add rest account to sender permissions of each form in the Communication Plan
-4. Note the Web Service URLs for each of the forms in the Communication Plan
+2. Import Workflow
+3. Add rest account to sender permissions of each form in the Workflow
+4. Note the Web Service URLs for each of the forms in the Workflow
 
 ## Integration Setup
 This assumes you have already installed and configured an xMatters Integration Agent. The install location of the agent is referred to here as $IA_HOME.
